@@ -7,20 +7,26 @@ function LoadingToRedirect() {
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
+        let isMounted = true; // To avoid state updates on unmounted component
         const interval = setInterval(() => {
             setCount((currentCount) => {
                 if (currentCount === 1) {
                     clearInterval(interval)
-                    setRedirect(true)
+                    if (isMounted) setRedirect(true);
+                    // setRedirect(true)
                 }
                 return currentCount - 1
             })
         }, 1000)
 
-        return () => clearInterval(interval)
+        return () => {
+            isMounted = false,
+            clearInterval(interval)
+        }
     }, [])
 
     if (redirect) {
+        console.log('hello to main')
         return <Navigate to={'/'} />
     }
 

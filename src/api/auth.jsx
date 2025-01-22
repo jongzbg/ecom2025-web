@@ -8,6 +8,7 @@ export const currentUser = async (token) => await axios.post('https://ecom2025-n
 })
 
 export const currentAdmin = async (token) => {
+    // console.log('token', token)
     return await axios.post('https://ecom2025-nine.vercel.app/current-admin', {}, {
         headers: {
             Authorization: `Bearer ${token}`

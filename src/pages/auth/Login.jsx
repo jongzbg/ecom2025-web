@@ -52,7 +52,6 @@ const Login = () => {
 
     // Send to Back
     try {
-      console.log('actionLogin',actionLogin)
       const res = await axios.post('https://ecom2025-nine.vercel.app/login', form)
       // console.log(res.data)
       toast.success(res.data)
