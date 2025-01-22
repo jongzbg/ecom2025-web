@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const createCategory = async (token, form) => {
-    return axios.post('http://localhost:5001/category', form, {
+    return axios.post('https://ecom2025-nine.vercel.app/category', form, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -9,12 +9,12 @@ export const createCategory = async (token, form) => {
 }
 
 export const listCategory = async () => {
-    return axios.get('http://localhost:5001/category', {
+    return axios.get('https://ecom2025-nine.vercel.app/category', {
     })
 }
 
 export const removeCategory = async (token, id) => {
-    return await axios.delete('http://localhost:5001/category/' + id, {
+    return await axios.delete('https://ecom2025-nine.vercel.app/category/' + id, {
         headers: {
             Authorization: `Bearer ${token}`
         }

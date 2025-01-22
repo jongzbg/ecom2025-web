@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const createUserCart = async (token, cart) => {
-    return axios.post('http://localhost:5001/user/cart', cart, {
+    return axios.post('https://ecom2025-nine.vercel.app/user/cart', cart, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -9,7 +9,7 @@ export const createUserCart = async (token, cart) => {
 }
 
 export const listUserCart = async (token) => {
-    return axios.get('http://localhost:5001/user/cart', {
+    return axios.get('https://ecom2025-nine.vercel.app/user/cart', {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -17,7 +17,7 @@ export const listUserCart = async (token) => {
 }
 
 export const saveAddress = async (token, address) => {
-    return axios.post('http://localhost:5001/user/address', { address }, {
+    return axios.post('https://ecom2025-nine.vercel.app/user/address', { address }, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -25,14 +25,14 @@ export const saveAddress = async (token, address) => {
 }
 
 export const saveOrder = async (token, payload) => {
-    return axios.post('http://localhost:5001/user/order', payload, {
+    return axios.post('https://ecom2025-nine.vercel.app/user/order', payload, {
         headers: {
             Authorization: `Bearer ${token}`
         }
     })
 }
 export const getOrders = async (token) => {
-    return axios.get('http://localhost:5001/user/order', {
+    return axios.get('https://ecom2025-nine.vercel.app/user/order', {
         headers: {
             Authorization: `Bearer ${token}`
         }
