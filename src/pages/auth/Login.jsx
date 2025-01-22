@@ -51,25 +51,25 @@ const Login = () => {
     }
 
     // Send to Back
-    // try {
-    //   console.log('actionLogin',actionLogin)
-    //   const res = await axios.post('https://ecom2025-nine.vercel.app/login', form)
-    //   // console.log(res.data)
-    //   toast.success(res.data)
-    // } catch (err) {
-
-    //   const errMsg = err.response?.data?.message  //get error message from backend
-    //   toast.error(errMsg)
-    //   console.log('err:', err)
-    // }
     try {
-      const res = await axios.post('https://ecom2025-nine.vercel.app/login', form, {
-        headers: { 'Content-Type': 'application/json' },
-      });
-      console.log('Response:', res.data);
-    } catch (error) {
-      console.error('Axios error:', error);
+      console.log('actionLogin',actionLogin)
+      const res = await axios.post('https://ecom2025-nine.vercel.app/login', form)
+      // console.log(res.data)
+      toast.success(res.data)
+    } catch (err) {
+
+      const errMsg = err.response?.data?.message  //get error message from backend
+      toast.error(errMsg)
+      console.log('err:', err)
     }
+    // try {
+    //   const res = await axios.post('https://ecom2025-nine.vercel.app/login', form, {
+    //     headers: { 'Content-Type': 'application/json' },
+    //   });
+    //   // console.log('Response:', res.data);
+    // } catch (error) {
+    //   console.error('Axios error:', error);
+    // }
 
 
   }
