@@ -1,14 +1,14 @@
 import axios from "axios";
 
 
-export const currentUser = async (token) => await axios.post('https://ecom2025-nine.vercel.app/current-user', {}, {
+export const currentUser = async (token) => await axios.post('http://localhost:5001/current-user', {}, {
     headers: {
         Authorization: `Bearer ${token}`
     }
 })
 
 export const currentAdmin = async (token) => {
-    return await axios.post('https://ecom2025-nine.vercel.app/current-admin', {}, {
+    return await axios.post('http://localhost:5001/current-admin', {}, {
         headers: {
             Authorization: `Bearer ${token}`
         }

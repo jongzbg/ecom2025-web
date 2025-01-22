@@ -60,7 +60,7 @@ const Register = () => {
 
   //   // Send to back
   //   try {
-  //     const res = await axios.post('https://ecom2025-nine.vercel.app/register', form)
+  //     const res = await axios.post('http://localhost:5001/register', form)
   //     console.log(res.data)
   //     toast.success(res.data)
   //   } catch (err) {
@@ -80,7 +80,7 @@ const Register = () => {
     }
     console.log('ok')
     try {
-      const res = await axios.post('https://ecom2025-nine.vercel.app/register', data)
+      const res = await axios.post('http://localhost:5001/register', data)
       console.log(res.data)
       toast.success(res.data)
     } catch (err) {
