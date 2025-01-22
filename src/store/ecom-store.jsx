@@ -57,7 +57,7 @@ const ecomStore = (set, get) => ({
     },
     actionLogin: async (form) => {
         console.log('action login from ecom')     
-        const res = await axios.post('http://localhost:5001/login', form)
+        const res = await axios.post('https://ecom2025-nine.vercel.app/login', form)
         // console.log(res.data.token)
         set({
             user: res.data.payload,
