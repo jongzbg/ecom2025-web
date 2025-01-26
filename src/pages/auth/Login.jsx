@@ -32,7 +32,8 @@ const Login = () => {
     if (role === 'admin') {
       navigate('/admin')
     } else {
-      navigate(-1)
+      // navigate(-1) // navigate to before page 
+      navigate('/'); // Default route
     }
   }
 

@@ -33,6 +33,7 @@ const Register = () => {
     handleSubmit,
     watch,
     formState: { errors },
+    reset, // Extract reset method
   } = useForm({ resolver: zodResolver(registerSchema) })
 
   const validatePassword = () => {
@@ -87,6 +88,7 @@ const Register = () => {
       const res = await axios.post('https://ecom2025-nine.vercel.app/register', data)
       console.log(res.data)
       toast.success(res.data)
+      reset();
       navigate('/login')
     } catch (err) {
 
