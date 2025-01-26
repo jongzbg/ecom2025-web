@@ -83,59 +83,79 @@ const FormProduct = () => {
         <div className='container mx-auto p-4 bg-white shadow-md'>
 
             <form onSubmit={handleSubmit}>
-                <h1>
+                <h1 className='text-2xl mb-4 font-bold'>
                     เพิ่มข้อมูลสินค้า
                 </h1>
-                <input
-                    className='border'
-                    name='title'
-                    type="text"
-                    value={form.title}
-                    onChange={handleOnchange}
-                    placeholder='Title'
+                <hr />
+
+                {/* Title */}
+                <div className='mt-2'>
+                    <span className='text-md font-bold text-gray-500'>Title</span>
+                    <div className='flex gap-2 mx-2 my-1'>
+                        <input
+                            className='border'
+                            name='title'
+                            type="text"
+                            value={form.title}
+                            onChange={handleOnchange}
+                            placeholder='Product Name..'
+                        />
+                        <input
+                            className='border'
+                            name='description'
+                            type="text"
+                            value={form.description}
+                            onChange={handleOnchange}
+                            placeholder='description'
+                        />
+                    </div>
+                </div>
 
 
-                />
-                <input
-                    className='border'
-                    name='description'
-                    type="text"
-                    value={form.description}
-                    onChange={handleOnchange}
-                    placeholder='description'
+                {/* Price */}
+                <div className='flex-1'>
+                    <span className='text-md font-bold text-gray-500'>Price</span>
+                    <input
+                        className='border flex gap-2 mx-2 my-1'
+                        name='price'
+                        type="number"
+                        value={form.price}
+                        onChange={handleOnchange}
+                        placeholder='$'
+                    />
+                </div>
 
+                {/* QTY */}
+                <div className='flex-1'>
+                    <span className='text-md font-bold text-gray-500'>QTY</span>
+                    <input
+                        className='border flex gap-2 mx-2 my-1'
+                        name='quantity'
+                        type="number"
+                        value={form.quantity}
+                        onChange={handleOnchange}
+                        placeholder='quantity'
+                    />
+                </div>
 
-                />
-                <input
-                    className='border'
-                    name='price'
-                    type="number"
-                    value={form.price}
-                    onChange={handleOnchange}
-                    placeholder='price'
-                />
-                <input
-                    className='border'
-                    name='quantity'
-                    type="number"
-                    value={form.quantity}
-                    onChange={handleOnchange}
-                    placeholder='quantity'
-                />
-                <select
-                    className='border'
-                    name="categoryId"
-                    onChange={handleOnchange}
-                    required
-                    value={form.categoryId}
-                >
-                    <option value="" disabled>Please Select</option>
-                    {
-                        categories.map((item, index) =>
-                            <option key={index} value={item.id} >{item.name}</option>
-                        )
-                    }
-                </select>
+                {/* Category */}
+                <div className='flex gap-2'>
+                    <span className='text-md font-bold text-gray-500'>Category</span>
+                    <select
+                        className='border'
+                        name="categoryId"
+                        onChange={handleOnchange}
+                        required
+                        value={form.categoryId}
+                    >
+                        <option value="" disabled>Please Select</option>
+                        {
+                            categories.map((item, index) =>
+                                <option key={index} value={item.id} >{item.name}</option>
+                            )
+                        }
+                    </select>
+                </div>
                 <hr />
 
                 {/* ๊Upload file */}
@@ -143,6 +163,8 @@ const FormProduct = () => {
                 <button type='submit' className='bg-blue-500 p-2 rounded-md shadow-md hover:scale-105 hover:-translate-y-1 hover:duration-200'>
                     เพิ่มสินค้า
                 </button>
+                <br />
+                <br />
                 <hr />
                 <br />
                 <table className='table w-full border'>
