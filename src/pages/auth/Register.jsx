@@ -6,17 +6,21 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'  // lib zod
 import zxcvbn from 'zxcvbn'   //example name of zod
+import { useNavigate } from 'react-router-dom';
 
 const registerSchema = z.object({
   email: z.string().email({ message: 'Invalid Email!' }),
   password: z.string().min(8, { message: 'Password must more than 8 Charactors' }),
   confirmPassword: z.string()
-}).refine((data) => data.password === data.confirmPassword, { message: 'Password and Confirm Password is not same', path: ["confirmPassword"] })
+}).refine((data) => data.password === data.confirmPassword, {
+  message: 'Password and Confirm Password is not same',
+  path: ["confirmPassword"]
+})
 
 const Register = () => {
   // Javascript
   const [passwordScore, setPasswordScore] = useState(0)
-
+  const navigate = useNavigate()
   // OG Code without lib :: now using lib validated registerSchema
   // const [form, setForm] = useState({
   //   email: "",
@@ -75,14 +79,15 @@ const Register = () => {
     console.log(data)
     console.log(zxcvbn(data.password).score)
     const passwordScore = zxcvbn(data.password).score
-    if (passwordScore < 3) {
-      toast.warning('Password is weak !!')
-    }
+    // if (passwordScore < 3) {
+    //   toast.warning('Password is weak !!')
+    // }
     console.log('ok')
     try {
       const res = await axios.post('https://ecom2025-nine.vercel.app/register', data)
       console.log(res.data)
       toast.success(res.data)
+      navigate('/login')
     } catch (err) {
 
       const errMsg = err.response?.data?.message  //get error message from backend
