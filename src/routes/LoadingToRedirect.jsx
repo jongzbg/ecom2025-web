@@ -27,7 +27,7 @@ function LoadingToRedirect() {
 
     if (redirect) {
         console.log('hello to main')
-        return <Navigate to={'/'} />
+        return <Navigate to={'/admin'} />
     }
 
     return (

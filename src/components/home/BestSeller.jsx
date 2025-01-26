@@ -29,7 +29,7 @@ const BestSeller = () => {
         <SwiperShowProduct>
             {
                 data?.map((item, index) =>
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <ProductCard key={index} item={item} />
                     </SwiperSlide>
                 )

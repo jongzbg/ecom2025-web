@@ -1,10 +1,7 @@
-import React, { useState, useEffect , memo} from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import useEcomStore from '../store/ecom-store'
 import { currentAdmin } from '../api/auth'
 import LoadingToRedirect from '../routes/LoadingToRedirect'
-
-// Memoize the element
-const MemoizedElement = memo(({ element }) => element);
 
 const ProtectRouteAdmin = ({ element }) => {
     const [ok, setOk] = useState(false)
@@ -24,7 +21,7 @@ const ProtectRouteAdmin = ({ element }) => {
 
     useEffect(() => {
         if (user && token) {
-            console.log("Checking admin permissions...");
+        
             currentAdmin(token)
                 .then(() => {
                     console.log("Admin access granted");
@@ -40,8 +37,6 @@ const ProtectRouteAdmin = ({ element }) => {
     // console.log(token)
     return ok ? element : <LoadingToRedirect />
     // return ok ? <MemoizedElement element={element} /> : <LoadingToRedirect />;
-
-
 }
 
 export default ProtectRouteAdmin

@@ -56,7 +56,7 @@ const ecomStore = (set, get) => ({
         }, 0)
     },
     actionLogin: async (form) => {
-        console.log('action login from ecom')
+        console.log('action login from ecom2')
         const res = await axios.post('https://ecom2025-nine.vercel.app/login', form,{
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true, // Important for CORS if cookies are used
