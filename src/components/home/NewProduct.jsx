@@ -27,11 +27,11 @@ const NewProduct = () => {
     return (
         <SwiperShowProduct>
             {
-                data?.map((item, index) =>
+                data?.map((item, index) =>(
                     <SwiperSlide key={index}>
                         <ProductCard key={index} item={item} />
                     </SwiperSlide>
-                )
+                ))
             }
         </SwiperShowProduct>
     )
